@@ -1,0 +1,20 @@
+{%extends "base.html"%}
+
+{%block body%}
+{{super()}}
+<form method = "POST" action = "/reg">
+    {{form_navbar.hidden_tag()}}
+    <div>{{form_navbar.navbarreg}}</div>
+</form>
+
+<form method = "POST" action = "/login">
+    {{form_navbar.hidden_tag()}}
+    <div>{{form_navbar.navbarlog}}</div>
+</form>
+
+<form method = "POST" action = "/chatpage">
+    {{form_navbar.hidden_tag()}}
+    <div>{{form_navbar.navbarchat}}</div>
+</form>
+
+{%endblock%}}

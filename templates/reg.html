@@ -1,0 +1,20 @@
+{%extends "navbar_for_chat.html"%}
+
+{%block body%}
+{{super()}}
+<form method="POST" action="/reg">
+    {{ form_reg.hidden_tag() }}
+    <div>
+    {{form_reg.login.label}} {{form_reg.login()}}
+    </div>
+    <div>
+    {{form_reg.password.label}} {{form_reg.password()}}
+    </div>
+    <div>
+    {{form_reg.email.label}} {{form_reg.email()}}
+    </div>
+    <div>{{form_reg.regsubmit}}</div>
+</form>
+{%endblock%}
+
+

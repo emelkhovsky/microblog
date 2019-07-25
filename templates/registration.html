@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="/static/css/style.css" >
+    <link rel="shortcut icon" href="static/images/morda.jpg" type="image/x-icon">
+</head>
+<body>
+
+<div id="templatemo_wrapper">
+
+    <div id="templatemo_header">
+        <div id="site_title">
+            <a href="{{url_for('main')}}"><img src="static/images/logotip.png" alt="Супер-котики" /><span>и где они обитают</span></a>
+        </div>
+    </div>
+
+    <div id="templatemo_main">
+
+        <div id="templatemo_sidebar">
+
+            <div id="templatemo_menu">
+                <ul>
+                    <li><a href="{{url_for('main')}}" class="current">Главная</a></li>
+                    <li><a href="{{url_for('chat')}}">Чат</a></li>
+                    <li><a href="{{url_for('reg')}}">Регистрация</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar_box">
+                <h3>Вход</h3>
+                <div class="news_box">
+
+                    {{globlog}}
+                    {%if globlog==None %}
+                    <form method="POST" action="/">
+                        <input type="text" name="login" placeholder="Логин" class="login ">
+                        <input type="password" name="password" placeholder="Пороль" class="login ">
+                        <button type="submit" class="login-button" >Войти</button>
+                    </form>
+                    {%else%}
+                    <form method="GET" action="/logout">
+                        <input type="submit" value="выйти">
+                    </form>
+                    {%endif%}
+
+                    <div class="cleaner"></div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <div id="templatemo_content">
+            <h1>Регистрация</h1>
+            {%if globlog!=None%}
+            <p>Извините, но вы уже авторизированы</p>
+            {%else%}
+            <form method="POST" action="/regbd">
+                <p><input type="text" name="user_login" placeholder="Ваш логин" class="login"></p>
+                <p><input type="password" name="user_password" placeholder="Ваш пароль" class="login"></p>
+                <p><input type="text" name="user_email" placeholder="Ваш адрес электронной почты" class="login"></p>
+                <p><button type="submit" class="login-button">Зарегестрироваться</button></p>
+                    {%endif%}
+            <div class="cleaner_h40"></div>
+        </div>
+
+        <div class="cleaner"></div>
+    </div>
+
+    <div id="templatemo_footer">
+        Copyright © 2048 SuperCat
+    </div>
+
+    <div class="cleaner"></div>
+
+</div>
+
+
+</body>
+</html>

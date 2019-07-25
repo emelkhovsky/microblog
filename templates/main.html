@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/static/css/style.css" >
+    <link rel="shortcut icon" href="static/images/morda.jpg" type="image/x-icon">
+</head>
+<body>
+
+<div id="templatemo_wrapper">
+
+    <div id="templatemo_header">
+        <div id="site_title">
+            <a href="{{url_for('main')}}"><img src="static/images/logotip.png" alt="Супер-котики" /><span>и где они обитают</span></a>
+        </div>
+    </div>
+
+    <div id="templatemo_main">
+
+        <div id="templatemo_sidebar">
+
+            <div id="templatemo_menu">
+                <ul>
+                    <li><a href="{{url_for('main')}}" class="current">Главная</a></li>
+                    <li><a href="{{url_for('chat')}}">Чат</a></li>
+                    <li><a href="{{url_for('reg')}}">Регистрация</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar_box">
+                <h3>Вход</h3>
+                <div class="news_box">
+
+                    {{globlog}}
+                    {%if globlog==None %}
+                    <form method="POST" action="/">
+                        <input type="text" name="login" placeholder="Логин" class="login ">
+                        <input type="password" name="password" placeholder="Пороль" class="login ">
+                        <button type="submit" class="login-button" >Войти</button>
+                    </form>
+                    {%else%}
+                    <form method="GET" action="/logout">
+                        <input type="submit" value="выйти">
+                    </form>
+                    {%endif%}
+
+                    <div class="cleaner"></div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div id="templatemo_content">
+            <h1>Так где же обитают супер-котики?</h1>
+            <p>Котики-неотъемлемая часть бытия. Благодаря им человек может жить полноценной жизнью.</p>
+            <div class="cleaner_h40"></div>
+        </div>
+
+        <div class="cleaner"></div>
+    </div>
+
+    <div id="templatemo_footer">
+        Copyright © 2048 SuperCat
+    </div>
+
+    <div class="cleaner"></div>
+
+</div>
+
+
+</body>
+</html>

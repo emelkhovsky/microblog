@@ -1,0 +1,13 @@
+{% extends "navbar_for_chat.html" %}
+{% block body %}
+{{ super() }}
+<form method = "POST"  action = "/chatpage">
+    {{form_chat.hidden_tag()}}
+    <div>{{form_chat.message.label}}{{form_chat.message()}}</div>
+    <div>{{form_chat.chatsubmit}}</div>
+</form>
+
+{%for i in rows%}
+    <div>{{i[1]}}:{{i[2]}}</div>
+{%endfor%}
+{% endblock %}
